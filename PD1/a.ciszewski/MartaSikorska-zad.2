@@ -1,1 +1,53 @@
+# Zad. 1
+# Napisz program który odczyta tekst wprowadzony przez użytkownika i następnie wydrukuje każdy,
+# unikatowy (nie mogący się powtarzać) symbol z tego tekstu na osobnym wierszu
 
+tekst = input("Podaj tekst: ")
+length = len(tekst)
+i = 0
+letters = []
+
+while i < length:
+    if i == 0:
+        letters.append(tekst[i])
+        print (tekst[i])
+        i = i + 1
+    elif tekst[i] not in letters:
+        letters.append(tekst[i])
+        print(tekst[i])
+        i = i + 1
+    else:
+        i = i + 1
+
+# Zad. 2
+# Napisz program umożliwiający zgadywanie liczby od 1 do 10. „Sekretna liczba” ma być wybierana przez program.
+# Następnie użytkownik za pomocą metody input() ma zgadywać sekretną liczbę. Użytkownik ma nieskończoną liczbę prób,
+# program kończy się gdy użytkownik zgadnie liczbę. Program ma również zliczać liczbę prób oraz wyświetlać ją na
+# konsoli w momencie odgadnięcia liczby.
+
+import random
+Sekretna_liczba = random.randint(1,10)
+gracz = -1
+próba = 0
+print("Zgadnij sekretną liczbę (1 - 10) ")
+while gracz != Sekretna_liczba:
+        gracz = int(input())
+        próba = próba + 1
+        if gracz == Sekretna_liczba:
+            print("Zgadłeś! Twoja Sekretna liczba to", Sekretna_liczba, ". Ilość Twoich prób to:", próba)
+
+
+#Zad. 3
+# Stwórz listę par (kontynent, liczba państw na tym kontynencie), a następnie stwórz z tego słownik.
+# Użytkownik ma wpisać w konsolę kontynent, a program ma wyświetlić liczbę państw w danym kontynencie
+# za pomocą zdania: "Kontynent ma n państw"
+
+lista = {'Europa':46,
+         'Azja':50,
+         'Ameryka Południowa':13,
+         'Ameryka Północna':22,
+         'Afryka':57,
+         'Australia':14,
+         'Antarktyda':0}
+kontynent = input("Podaj kontynent: ")
+print(f"Kontynent ma {lista[kontynent]} państw")
